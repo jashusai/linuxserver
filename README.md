@@ -145,7 +145,8 @@ Enable mod_wsgi
 
 sudo a2enmod wsgi
 
-Setting up your flask application to work with apache2
+##Setting up your flask application to work with apache2:
+
 Creating a flask app
 
 In /var/www directory create a new folder sudo mkdir FlaskApp
