@@ -1,28 +1,29 @@
 #LINUX SERVER CONFIGURATION
-About:
+##About:
 
 This is the Udacity project 6 about the Configuring the Linux the server.
 
-Server Details:
+##Server Details:
 
 Server IP Address 13.127.33.67.xip.io
 
 Hosted site Url http://13.127.33.67.xip.io/
 
-Grader Password:
+##Grader Password:
 
 jash
 
-Grader Key
+##Grader Key:
+
 -----BEGIN RSA PRIVATE KEY----- MIIEpAIBAAKCAQEAzWjQFkash6auMRk5tw2yJNRSTANOWMWnbxXqAL/bMsWdqfAb qbqg6mRzOeYPSLbbJ7LGia49qU/qlN3x6XIlbcMwMjKbhLY01MLab7h7Qv0nOTKZ whEHjl2K2a8txPvZa6+U5kfDWMl97yz4G9F6QWv0Pz5goO8a26aMT3Jv4AeJKBcy a2uY12Exwatv+9mGT0gcw0c2Aad5m0oqKq7tA7F6O6DgkcdoO70JQPrJLnXH/+pj +eLgCdNyrfZf1TdgfPzc8GxeVd2T/mbHRwP3iMsH4r65NQ3zQU0PHgK1KyIN2hiG Yh+rf2g87GfgWzJYl9QAa1wNz7xUz8MkFOblDwIDAQABAoIBAQCpNxA9Wall8q0L a5F9OH4qEvNdBVg0j1eYjsAAMA0+rUduKIxRbZqEnY3DA8BRkbnG4WLnJzBK27gP PSu9ubgVzTdWExTE5mltYLwcTyjUDcKTPxklo2vLH0p0e/jDjwoUyUdr0XCfIxZo w239VLtXS7yhoRxvV6qTioeKJ2b8cR3yXWEDIVeayO40hciBb4zP6I5vz8nKkIAw ttuvSQpDaBbHgZ8KTWNlFfIsdDSUw2bKM6OSLjBMqr+oLKmCsgGGYPDhBVbgvtww TfvLFf3Hqa+w6YlX3+yD9om5KUAtHFPRB6nPLeVJcONxDZA1ZsSizRJp51TVCFek fy4LNqjxAoGBAPb/vk4Y3KEkMaDi44RVviNT2rId7b2vqoYrxZiteFtJ3dX19dOI vorx0J2Ka2BqGvMhzuJ3Lk6cXwiAGcnqNrPmN+pafAODR7yYg50aS5QF+DIP4HTU Adm6aAkpeqhQHiSZsXVjUk3rb5OwKRhs/dbV74zdnGE4aZU26SLbE6SXAoGBANTl FHBWgukiAG7yJ9XqpLIg53PG1GG0lL0llIbqF/HXyH0CC3dYP18r3T3HP8u7N7Y5 TXrVyTJsZHKplKykrkC2mloESDgVnry1/Ppm039oey7hLXirLr2jT7j+dfCmb9Ut oL7KAmsUryMArNbo4pC0jiuWxMcLGcTVKrwJq3pJAoGAGolVZ8yR/5oE3vUhXnlb yS3cJCDFBwkVd/7B5upUMPKZq8AWHhjl58WdFR/m81/S72YldP0682UnbKFeo+vO 3rsQLNR12GbFUUTNdxZ5IjkV9kLwaXzRihPV044qSGT7KBF/GE6IbCisPyDA+YfU Kb2oU+kHQQaviUFyALWqwZcCgYAchK9POReCOU7Ljd6uNidnwSagCLNsfy8pgz45 MGSSvfAaZsq4avbaPdr+KpGuLd8Rpu1tFfREr+ZowbSrx8eb3Zohks9FzAeeidZg iKOuPoW5yuo3bt7tAlJsmpGb8f+rE9ijlhXq2DN5wd5lT38CGV2uEx06+I60IkX+ OGFjGQKBgQDrRS4P68PxGgMD0mNkXlZ7ZnNsafewtgt1sgs+hk4tFAR4kB77JKBv 248dTvAvRK6UAqywc2AgqGsVqfT0XPxKqICNbWJ+UEAwfMafMuCSPB2yMR5PNLLl 2fDqZrienVzarLPLLwmKQqOfwNQfYwgjBXI2Bt+wY31TJLPBzeaZPA== -----END RSA PRIVATE KEY-----
 
-How to connect as grader:
+##How to connect as grader:
 
 save private key provided in your local machine and run the following command
 
 ssh -i path/to/privatekey -p 2200 grader@13.232.120.119
   
-Configuring Linux Server:
+##Configuring Linux Server:
 
 Updating all packages:
 
@@ -30,7 +31,7 @@ sudo apt-get update
 
 sudo apt-get upgrade
 
-Creating grader User:
+##Creating grader User:
 
 sudo adduser grader
 
@@ -42,7 +43,7 @@ Below the Root user append the following line
 grader  ALL=(ALL:ALL) ALL
 This will grant sudo permission to grader
 
-Creating a ssh key pair for grader:
+##Creating a ssh key pair for grader:
 
 On your local machine in terminal/command prompt
 
@@ -81,13 +82,13 @@ Now Login using command like this
 
 ssh -i .ssh/id_rsa -p 2200 grader@ipaddress
 
-Disabling ssh login as root:
+##Disabling ssh login as root:
 
 sudo nano /etc/ssh/sshd_config
 
 make change PermitRootLogin no
 
-Configurating Ufw firewall:
+##Configurating Ufw firewall:
 
 
 sudo ufw allow 2200/tcp
@@ -104,13 +105,13 @@ After that
 sudo ufw status
 It will display all allowed ports
 
-Changing time Zone:
+##Changing time Zone:
 
 sudo dpkg-reconfigure tzdata
 
 select none from list and then select utc.
 
-Installing Apache2:
+##Installing Apache2:
 
 In terminal
 
@@ -152,7 +153,7 @@ Use json_url instead client_secrets.json in script
 
 
 
-Install and configuring postgresql for project:
+##Install and configuring postgresql for project:
 
 Install Postgres sudo apt-get install postgresql
 
@@ -178,7 +179,7 @@ Change the database connection in both db_setup.py and init.py as engine = creat
 
 Now you are ready with your applicatiom
 
-Configure and Enable a New Virtual Host:
+##Configure and Enable a New Virtual Host:
 
 sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
@@ -205,7 +206,7 @@ Enable the virtual host sudo a2ensite FlaskApp
 
 Disabling the default apache2 page sudo a2dissite 000-default.conf
 
-Create the .wsgi File:
+##Create the .wsgi File:
 ```
 cd /var/www/FlaskApp
 sudo nano flaskapp.wsgi 
@@ -224,13 +225,13 @@ save and exit
 
 Deploying flask app with apache2 is referred from Digital ocean
 
-Installing require modules:
+##Installing require modules:
 
 You can either install all modules on your machine or create a virtual environment for the project and install the modules To Create virtual environment: sudo virtualenv venv To activate virtual environment: source venv/bin/activate pip install flask sqlalchemy psycopg2 requests oauth2client
 
 To deactivate virtual environment: deactivate
 
-Setting up your Google Oauth2:
+##Setting up your Google Oauth2:
 
 Login to your developer console and select your project and edit OAuth details as following
 
@@ -246,7 +247,7 @@ http://ip.xip.io\login
 
 xip.io is a free DNS which will be the same as using IP address
 
-Final Step:
+##Final Step:
 
 Restart your apache2 server
 
