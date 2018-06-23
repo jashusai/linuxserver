@@ -1,20 +1,20 @@
-#LINUX SERVER CONFIGURATION
+# LINUX SERVER CONFIGURATION-24
 
-##About:
+## About:
 
 This is the Udacity project 6 about the Configuring the Linux the server.
 
-##Server Details:
+## Server Details:
 
 Server IP Address 13.127.33.67.xip.io
 
 Hosted site Url http://13.127.33.67.xip.io/
 
-##Grader Password:
+## Grader Password:
 
 jash
-
-##Grader Key:
+ 
+## Grader Key:
 
 -----BEGIN RSA PRIVATE KEY----- AAABAQCSCqFPwISafsqe4pwbmGtyrgJ76ScpNstWINfip2KxKx7FVKgQkFDixBlc
 7Z4oA1dL3nEKLyo+cSeyqv1P83up9ScukOMEuH5GZKUnml0mbjHw+SFh0MuZdq+4
@@ -32,18 +32,18 @@ Lrfu5B9z9R1qLRp+SAAG3OSGbvxoZ/IYliGNq+QywaGS1jfhC0uZrw1ZmEpNnJHs
 U28a5Bt72mO2hRxJ/qOW+8VPa1OTjy5NgTKPzwHRVN3TXvLf
 == -----END RSA PRIVATE KEY-----
 
-##id_rsa.pub key:
+## id_rsa.pub key:
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJLKqb78qvz9QHdJWiLkvryqO1BfcXQkpP0q0JmfVLFFeX4fb7P3CDnf4ACVYC4PJ+qFT40rCLLFAJLgvSCViQsanwhclceEriH8smjkGfTMigRYcXxyW/wQMbjdGYbxnXc+8v/eVvVLnLHlrhFn+13iafGxlAfF6XLGV30S4g6/jEiZDg8YrxmsmfiGvKgplH67eT1qXF86Mff/Kb75JQWenJK7U1GoJ/v6Im+wOj+4GJgc6JcJeTRgWfk3J7HZdV+qieQMRPGh6Kwm3pQj+EDJ3TAc26lackrTZnQbcRL3IYtdjLedLDngQEz5IdrJozt34nzYLu9ZFMROYFuJLh
 
 
 
-##How to connect as grader:
+## How to connect as grader:
 
 save private key provided in your local machine and run the following command
 
 ssh -i path/to/privatekey -p 2200 grader@13.127.33.67
   
-##Configuring Linux Server:
+## Configuring Linux Server:
 
 Updating all packages:
 
@@ -51,7 +51,7 @@ sudo apt-get update
 
 sudo apt-get upgrade
 
-##Creating grader User:
+## Creating grader User:
 
 sudo adduser grader
 
@@ -63,7 +63,7 @@ Below the Root user append the following line
 grader  ALL=(ALL:ALL) ALL
 This will grant sudo permission to grader
 
-##Creating a ssh key pair for grader:
+## Creating a ssh key pair for grader:
 
 On your local machine in terminal/command prompt
 
@@ -94,7 +94,7 @@ Now from your log in to grader with private key generated
 
 ssh -i .ssh/id_rsa grader@ipaddress 
 
-##Changing the ssh port to 2200:
+## Changing the ssh port to 2200:
 
 sudo nano /etc/ssh/sshd_config
 
@@ -110,13 +110,13 @@ Now Login using command like this
 
 ssh -i .ssh/id_rsa -p 2200 grader@ipaddress
 
-##Disabling ssh login as root:
+## Disabling ssh login as root:
 
 sudo nano /etc/ssh/sshd_config
 
 make change PermitRootLogin no
 
-##Configurating Ufw firewall:
+## Configurating Ufw firewall:
 
 
 sudo ufw allow 2200/tcp
@@ -134,13 +134,13 @@ sudo ufw status
 
 It will display all allowed ports
 
-##Changing time Zone:
+## Changing time Zone:
 
 sudo dpkg-reconfigure tzdata
 
 select none from list and then select utc.
 
-##Installing Apache2:
+## Installing Apache2:
 
 In terminal
 
@@ -154,7 +154,7 @@ Enable mod_wsgi
 
 sudo a2enmod wsgi
 
-##Setting up your flask application to work with apache2:
+## Setting up your flask application to work with apache2:
 
 Creating a flask app
 
@@ -183,7 +183,7 @@ Use json_url instead client_secrets.json in script
 
 
 
-##Install and configuring postgresql for project:
+## Install and configuring postgresql for project:
 
 Install Postgres sudo apt-get install postgresql
 
@@ -209,7 +209,7 @@ Change the database connection in both db_setup.py and init.py as engine = creat
 
 Now you are ready with your applicatiom
 
-##Configure and Enable a New Virtual Host:
+## Configure and Enable a New Virtual Host:
 
 sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
@@ -236,7 +236,7 @@ Enable the virtual host sudo a2ensite FlaskApp
 
 Disabling the default apache2 page sudo a2dissite 000-default.conf
 
-##Create the .wsgi File:
+## Create the .wsgi File:
 ```
 cd /var/www/FlaskApp
 sudo nano flaskapp.wsgi 
@@ -254,14 +254,14 @@ Add the following code
 save and exit
 
 Deploying flask app with apache2 is referred from Digital ocean
-
-##Installing require modules:
+ 
+## Installing require modules:
 
 You can either install all modules on your machine or create a virtual environment for the project and install the modules To Create virtual environment: sudo virtualenv venv To activate virtual environment: source venv/bin/activate pip install flask sqlalchemy psycopg2 requests oauth2client
 
 To deactivate virtual environment: deactivate
 
-##Setting up your Google Oauth2:
+## Setting up your Google Oauth2:
 
 Login to your developer console and select your project and edit OAuth details as following
 
@@ -277,7 +277,7 @@ http://ip.xip.io\login
 
 xip.io is a free DNS which will be the same as using IP address
 
-##Final Step:
+## Final Step:
 
 Restart your apache2 server
 
