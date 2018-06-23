@@ -76,14 +76,20 @@ sudo su - grader
 Create a new directory .ssh and new file authorized_keys in that directory
 
 mkdir .ssh
+
 sudo nano .ssh/authorized_keys
 Copy the public key with .pub extension to authorized_keys and save the file
 
 chmod 700 .ssh
+
 chmod 644 .ssh/authorized_keys
+
 700 will give read write and execute permission to user.
+
 644 prevent other user from writting in to file. Then restart ssh server
+
 sudo service ssh restart
+
 Now from your log in to grader with private key generated
 
 ssh -i .ssh/id_rsa grader@ipaddress 
@@ -91,11 +97,13 @@ ssh -i .ssh/id_rsa grader@ipaddress
 ##Changing the ssh port to 2200:
 
 sudo nano /etc/ssh/sshd_config
+
 Change port 22 to port 2200
 
 Restart the ssh server
 
 service ssh restart
+
 Note: Before Logging using ssh add custom TCP port 2200 under lightsaail firewall in networking tab in lightsail instance console
 
 Now Login using command like this
@@ -123,6 +131,7 @@ This will allow all required ports and enables the ufw
 After that
 
 sudo ufw status
+
 It will display all allowed ports
 
 ##Changing time Zone:
