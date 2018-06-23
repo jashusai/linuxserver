@@ -22,7 +22,7 @@ jash
 
 save private key provided in your local machine and run the following command
 
-ssh -i path/to/privatekey -p 2200 grader@13.232.120.119
+ssh -i path/to/privatekey -p 2200 grader@13.127.33.67
   
 ##Configuring Linux Server:
 
