@@ -69,7 +69,7 @@ Now from your log in to grader with private key generated
 
 ssh -i .ssh/id_rsa grader@ipaddress 
 
-Changing the ssh port to 2200:
+##Changing the ssh port to 2200:
 
 sudo nano /etc/ssh/sshd_config
 Change port 22 to port 2200
